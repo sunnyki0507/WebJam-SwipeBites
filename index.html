@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Page-Exit" content="revealTrans(Duration=1,Transition=12)">
-  <title>Semantic UI Example</title>
+  <title>Welcome/Inputs</title>
 
   <!-- JQuery dependency -->
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -30,7 +29,7 @@
 
 <body>
   <div class = "header" >
-      <h1>SwipeBites</h1>
+      <h1>SwipeBites.</h1>
   </div><br>
 
   <div class = "container">
@@ -46,25 +45,25 @@
               <label>Prices</label>
               <div class="field">
                   <div class="ui radio checkbox">
-                      <input type="radio" name="$" id = "$" onclick>
+                      <input type="radio" name="price" id = "$" value = "false" onclick = "radioValue(this)">
                       <label>$</label>
                   </div>
               </div>
               <div class="field">
                   <div class="ui radio checkbox">
-                      <input type="radio" name="$$" id = "$$">
+                      <input type="radio" name="price1" id = "$$" value = "false" onclick = "radioValue(this)">
                       <label>$$</label>
                   </div>
               </div>
               <div class="field">
                   <div class="ui radio checkbox">
-                      <input type="radio" name="$$$" id="$$$">
+                      <input type="radio" name="price2" id="$$$" value = "false" onclick = "radioValue(this)">
                       <label>$$$</label>
                   </div>
               </div>
               <div class="field">
                   <div class="ui radio checkbox">
-                      <input type="radio" name="$$$$" id="$$$$">
+                      <input type="radio" name="price3" id="$$$$" value = "false" onclick = "radioValue(this)">
                       <label>$$$$</label>
                   </div>
               </div>
@@ -73,9 +72,6 @@
 
       <button class="ui button" id = "full" onclick = "returnValues()">Submit</button>
   </div>
-
-
-
 
 
 </body>

@@ -1,24 +1,22 @@
 function returnValues() {
-    let locationInput =
-        document.getElementById("locationInput").value;
+    let locationInput = document.getElementById("locationInput").value;
     alert(locationInput);
 
-    let lowValue = document.getElementById("$").value;
-    let lowMedium = document.getElementById("$$").value;
-    let highMedium = document.getElementById("$$$").value;
-    let highValue = document.getElementById("$$$$").value;
-
-
-    if (lowValue.checked != "checked")
+    let price = [];
+    let count = "$";
+    for(let x = 0; x < 4; ++x)
     {
-        lowValue = "off";
+        let element = document.getElementById(count).value;
+        price.push(element);
+        count += "$";
     }
-    
-    let priceElements = [];
-    priceElements.push(lowValue, lowMedium, highMedium, highValue);
-    alert(priceElements)
 
-   document.getElementById("locationInput").value = "";
-   document.getElementById("priceInput").value = "selectPrice";
+   alert(price) ;
 }
+function radioValue(clickedButton){
+    let itemID = clickedButton.id;
+    let radio = document.getElementById(itemID);
+    radio.value = "true";
+}
+
 
