@@ -30,20 +30,16 @@ function returnValues() {
     let count = "$";
     for(let x = 0; x < 4; ++x)
     {
-        let element = document.getElementById(count).value;
-        price.push(element);
+        if (document.getElementById(count).checked) {
+            price.push(x + 1);
+        }
         count += "$";
     }
-    
-    let priceElements = [];
-    priceElements.push(lowValue, lowMedium, highMedium, highValue);
-    alert(priceElements)
 
-   alert(price) ;
+    alert(price);
 }
 function radioValue(clickedButton){
     let itemID = clickedButton.id;
     let radio = document.getElementById(itemID);
     radio.value = "true";
 }
-
