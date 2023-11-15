@@ -1,0 +1,38 @@
+body{
+    padding: 10em;
+    display: grid;
+    place-content: center;
+    background-color: #84344B;
+}
+
+p {
+    color: black;
+    font-size: 30px;
+}
+
+.container{
+    width: 400px;
+    height: 500px;
+    padding: 20px;
+    font-family: 'Baloo 2', sans-serif;
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    box-shadow: 10px 10px #9F718F;
+}
+
+h1{
+    color: #FFFFFF;
+}
+
+h2{
+    color: #84344B;
+    font-size: 32px;
+}
+
+#full {
+    width: 100%;
+}
+
+#locationInput{
+    font-size: 15px;
+}
