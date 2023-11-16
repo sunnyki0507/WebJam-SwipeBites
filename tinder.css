@@ -3,8 +3,21 @@ body{
     place-content: center;
 }
 #leftArrow{
-    width: 60px;
-    height: 60px;
+    position: absolute;
+    top: 150px;
+    left: 1px;
+    opacity: .5;
+    color: white;
+}
+#rightArrow{
+    position: absolute;
+    top: 150px;
+    right: 1px;
+    opacity: .5;
+    color: white;
+}
+#photo{
+    position: relative;
 }
 #profile{
     width: 400px;

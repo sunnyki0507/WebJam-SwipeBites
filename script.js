@@ -48,10 +48,8 @@ function radioValue(clickedButton) {
 
 async function retrieve_data(attribute) {
     // const input = return_values();
-    const location = "irvine";
-    const price = [1, 2];
 
-    const businessData = await get_business(location, price);
+    const businessData = await get_business("irvine", [1,2]);
 
     if (businessData.businesses.length > 0) {
         const randomIndex = Math.floor(Math.random() * businessData.businesses.length);
@@ -61,25 +59,22 @@ async function retrieve_data(attribute) {
         return value;
     }
     else {
-        console.error('No businesses found.');
+       // alert('No businesses found.');
         return null;
     }
 }
-let categories = ["chinese", "fish", "vegeterian"];
-let json = ["Leanne", "4.5", "35", categories ];
+
 function loadData(){
-
-    document.getElementById("name").innerHTML = json[0];
-    document.getElementById("rating").innerHTML = json[1];
-    document.getElementById("count").innerHTML = json[2];
-    document.getElementById("categories").innerHTML = json[3];
-
-
+   // alert(retrieve("name"));
+    document.getElementById("name").innerHTML = retrieve("name");
+    document.getElementById("rating").innerHTML = retrieve("rating");
+    document.getElementById("count").innerHTML = retrieve("review_count");
+    document.getElementById("categories").innerHTML = retrieve("categories").map(category => category.title);
 }
 
-async function main(attribute) {
+async function retrieve(attribute) {
     let output = await retrieve_data(attribute);
     console.log(output);
 }
 
-main("name");
+loadData();
