@@ -70,7 +70,23 @@
           </div>
       </div>
 
-      <button class="ui button" id = "full" onclick = "returnValues()">Submit</button>
+      <button class="ui button" id="full" onclick="retrieve('name')">Submit</button>
+      <script>
+          async function retrieve(attribute) {
+              try {
+                  const result = await retrieve_data(attribute);
+
+                  if (result != null) {
+                      alert(result);
+                  } else {
+                      alert("Data retrieval failed or no data found.");
+                  }
+              } catch (error) {
+                  console.error(error);
+                  alert("An error occurred during data retrieval.");
+              }
+          }
+      </script>
   </div>
 
 
