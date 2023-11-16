@@ -18,6 +18,14 @@ body{
 }
 #photo{
     position: relative;
+
+    width: 350px;
+    height: 350px;
+}
+#url{
+    object-fit: cover;
+    width: 350px;
+    height: 350px;
 }
 #profile{
     width: 400px;

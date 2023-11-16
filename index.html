@@ -71,18 +71,7 @@
       </div>
 
       <button class="ui button" id="full" onclick="retrieve('name')">Submit</button>
-      <script>
-          async function retrieve(attribute) {
-              alert(attribute);
-              try {
-                  const result = await retrieve_data(attribute);
-                  alert(result)
-              } catch (error) {
-                  console.error(error);
-                  alert("An error occurred during data retrieval.");
-              }
-          }
-      </script>
+
   </div>
 
 

@@ -1,26 +1,3 @@
-const options = {
-    method: 'GET',
-    headers: {
-        'User-Agent': 'insomnia/8.4.1',
-        Authorization: 'Bearer 4J-bQ9eSyxSktKKdSOk2ZO6b9q9XOb-RroAujtxCfY-IXJqMuzVBLZs-eGhQrP-YWiRVPX_mKzQhoRcdkK83xCVfRpVRPS9JiB1cjI7DgJk0KTUb1-EMOT-5dK1TZXYx'
-    }
-};
-
-function get_business(location, price) {
-    const url = `https://api.yelp.com/v3/businesses/search?location=${encodeURIComponent(location)}&price=${encodeURIComponent(price)}`;
-
-    return fetch(url, options)
-        .then(response => response.json())
-        .then(response => response)
-        .catch(err => console.error(err));
-}
-
-function get_details(id) {
-    return fetch(`https://api.yelp.com/v3/businesses/${encodeURIComponent(id)}`, options)
-        .then(response => response.json())
-        .then(response => response)
-        .catch(err => console.error(err));
-}
 
 function return_values() {
     let locationInput = document.getElementById("locationInput").value;
@@ -33,11 +10,6 @@ function return_values() {
         }
         count += "$";
     }
-
-    return {
-        location: locationInput,
-        price: price
-    };
 }
 
 function radioValue(clickedButton) {
@@ -46,35 +18,46 @@ function radioValue(clickedButton) {
     radio.value = "true";
 }
 
-async function retrieve_data(attribute) {
-    // const input = return_values();
 
-    const businessData = await get_business("irvine", [1,2]);
-
-    if (businessData.businesses.length > 0) {
-        const randomIndex = Math.floor(Math.random() * businessData.businesses.length);
-        const detailsData = await get_details(businessData.businesses[randomIndex].id);
-
-        let value = detailsData[attribute];
-        return value;
-    }
-    else {
-       // alert('No businesses found.');
-        return null;
-    }
-}
 
 function loadData(){
    // alert(retrieve("name"));
-    document.getElementById("name").innerHTML = retrieve("name");
-    document.getElementById("rating").innerHTML = retrieve("rating");
-    document.getElementById("count").innerHTML = retrieve("review_count");
-    document.getElementById("categories").innerHTML = retrieve("categories").map(category => category.title);
+    document.getElementById("name").innerHTML = "Leanne";
+    document.getElementById("rating").innerHTML = "4";
+    document.getElementById("count").innerHTML = "3.5";
+    document.getElementById("categories").innerHTML = "chicken, noodles";
 }
 
-async function retrieve(attribute) {
-    let output = await retrieve_data(attribute);
-    console.log(output);
+let url1 = "https://www.akc.org/wp-content/uploads/2018/05/Three-Australian-Shepherd-puppies-sitting-in-a-field.jpg"
+let url2 = "https://www.hartz.com/wp-content/uploads/2022/04/small-dog-owners-1.jpg";
+let url3 = "https://media.cnn.com/api/v1/images/stellar/prod/201030094143-stock-rhodesian-ridgeback.jpg?q=w_2187,h_1458,x_0,y_0,c_fill";
+let url4 = "https://www.princeton.edu/sites/default/files/styles/1x_full_2x_half_crop/public/images/2022/02/KOA_Nassau_2697x1517.jpg?itok=Bg2K7j7J";
+let url = [url1, url2, url3, url4];
+let current = 0; // Declare the variable outside the functions
+
+function currentImage() {
+    let image = document.getElementById("url");
+    image.src = url[current];
 }
 
-loadData();
+function leftButton() {
+    let image = document.getElementById("url");
+    // Use the global variable
+    if (current === 0) {
+        current = 3;
+    } else {
+        --current;
+    }
+
+    image.src = url[current];
+}
+
+function rightButton() {
+    let image = document.getElementById("url");
+    if (current === 3) {
+        current = 0;
+    } else {
+        ++current;
+    }
+    image.src = url[current];
+}
