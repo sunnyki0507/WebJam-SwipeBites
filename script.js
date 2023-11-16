@@ -66,9 +66,9 @@ async function retrieve_data(attribute) {
     }
 }
 
-async function get(attribute) {
+async function main(attribute) {
     let output = await retrieve_data(attribute);
     console.log(output);
 }
 
-get("name");
+main("name");
