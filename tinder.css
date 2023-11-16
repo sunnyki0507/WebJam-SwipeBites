@@ -1,0 +1,14 @@
+body{
+    display: grid;
+    place-content: center;
+}
+#leftArrow{
+    width: 60px;
+    height: 60px;
+}
+#profile{
+    width: 400px;
+    height: 600px;
+    padding: 20px;
+}
+

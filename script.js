@@ -34,10 +34,6 @@ function returnValues() {
         price.push(element);
         count += "$";
     }
-    
-    let priceElements = [];
-    priceElements.push(lowValue, lowMedium, highMedium, highValue);
-    alert(priceElements)
 
    alert(price) ;
 }
@@ -47,3 +43,14 @@ function radioValue(clickedButton){
     radio.value = "true";
 }
 
+let categories = ["chinese", "fish", "vegeterian"];
+let json = ["Leanne", "4.5", "35", categories ];
+function loadData(){
+
+    document.getElementById("name").innerHTML = json[0];
+    document.getElementById("rating").innerHTML = json[1];
+    document.getElementById("count").innerHTML = json[2];
+    document.getElementById("categories").innerHTML = json[3];
+
+
+}
