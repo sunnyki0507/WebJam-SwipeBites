@@ -1,3 +1,5 @@
+let GLOBAL_INPUT, GLOBAL_DATA;
+
 const options = {
     method: 'GET',
     headers: {
@@ -18,6 +20,9 @@ function get_input() {
         count += "$";
     }
 
+    // alert(locationInput)
+    // alert(price)
+
     return {
         location: locationInput,
         price: price
@@ -31,24 +36,20 @@ function radioValue(clickedButton) {
 }
 
 async function loadData() {
-    const data = await get();
-    // alert("Data: " + data);
-    document.getElementById("name").innerHTML = data["name"];
-    document.getElementById("rating").innerHTML = data["rating"];
-    document.getElementById("count").innerHTML = data["review_count"];
-    document.getElementById("categories").innerHTML = data["categories"].map(category => category.title).join(', ');
+    document.getElementById("name").innerHTML = GLOBAL_DATA["name"];
+    document.getElementById("rating").innerHTML = GLOBAL_DATA["rating"];
+    document.getElementById("count").innerHTML = GLOBAL_DATA["review_count"];
+    document.getElementById("categories").innerHTML = GLOBAL_DATA["categories"].map(category => category.title).join(', ');
 }
 
 function get() {
-    const data = {
-        location: "irvine",
-        price: [1,2]
-    };
+    // const data = {
+    //     location: "irvine",
+    //     price: [1,2]
+    // };
 
-    // const data = get_input();
-
-    const priceString = data.price.join(',');
-    const url = `/api?location=${encodeURIComponent(data.location)}&price=${encodeURIComponent(priceString)}`;
+    const priceString = GLOBAL_INPUT.price.join(',');
+    const url = `/api?location=${encodeURIComponent(GLOBAL_INPUT.location)}&price=${encodeURIComponent(priceString)}`;
 
     return fetch(url, options)
         .then(response => {
@@ -60,4 +61,13 @@ function get() {
             return response;
         })
         .catch(err => console.error(err));
+}
+
+async function begin_swipe() {
+    GLOBAL_INPUT = await get_input();
+    GLOBAL_DATA = await get();
+    alert("Location: " + GLOBAL_INPUT.location +
+        "\nPrice: " + GLOBAL_INPUT.price.join(',') +
+        "\nOutput: " + GLOBAL_DATA["name"])
+    window.location.href = '/swipe';
 }
