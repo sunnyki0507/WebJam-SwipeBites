@@ -54,23 +54,35 @@ async function begin_swipe() {
 
     alert("Location: " + storedInput.location +
         "\nPrice: " + storedInput.price.join(',') +
-        "\nOutput: " + storedData["categories"].map(category => category.title).join(', '))
+        "\nOutput: " + storedData["name"])
+    // OUTPUT DISPLAYS OLD DATA
 
     window.location.href = '/swipe';
 }
 
 
 let URLS = [];
+let IMG_COUNT = 0;
 let CURRENT = 0; // Declare the variable outside the functions
 
 function loadData() {
     let storedData = JSON.parse(localStorage.getItem('GLOBAL_DATA'));
+
     URLS = [storedData.image_url].concat(storedData.photos);
+    IMG_COUNT = URLS.length;
+    CURRENT = 0;
+
+    let test_url = "";
+    for (let i = 0; i < IMG_COUNT; ++i)
+    {
+        test_url += URLS[i] + "\n";
+    }
+    alert(test_url);
 
     currentImage();
     document.getElementById("name").innerHTML = storedData.name;
-    document.getElementById("rating").innerHTML = storedData.rating;
-    document.getElementById("count").innerHTML = storedData.review_count;
+    document.getElementById("rating").innerHTML = "Rating: " + storedData.rating;
+    document.getElementById("count").innerHTML = "(" + storedData.review_count + " reviews)";
     document.getElementById("categories").innerHTML = storedData["categories"].map(category => category.title).join(', ');
 }
 
@@ -82,27 +94,31 @@ function radioValue(clickedButton) {
 
 function currentImage() {
     let image = document.getElementById("url");
+    alert(URLS[CURRENT]);
     image.src = URLS[CURRENT];
 }
+
+// FIRST ARROW CLICK DOESNT WORK SO MAKES LAST IMG UNDEFINED
 
 function leftButton() {
     let image = document.getElementById("url");
     // Use the global variable
     if (CURRENT === 0) {
-        CURRENT = 3;
+        CURRENT = IMG_COUNT-1;
     } else {
         --CURRENT;
     }
-
+    alert(URLS[CURRENT]);
     image.src = URLS[CURRENT];
 }
 
 function rightButton() {
     let image = document.getElementById("url");
-    if (CURRENT === 3) {
+    if (CURRENT === IMG_COUNT-1) {
         CURRENT = 0;
     } else {
         ++CURRENT;
     }
+    alert(URLS[CURRENT]);
     image.src = URLS[CURRENT];
 }
