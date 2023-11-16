@@ -47,41 +47,28 @@ function radioValue(clickedButton) {
 }
 
 async function retrieve_data(attribute) {
-    try {
-        // const input = return_values();
-        const location = "irvine";
-        const price = [1, 2];
+    // const input = return_values();
+    const location = "irvine";
+    const price = [1, 2];
 
-        const businessData = await get_business(location, price);
+    const businessData = await get_business(location, price);
 
-        if (businessData.businesses.length > 0) {
-            const randomIndex = Math.floor(Math.random() * businessData.businesses.length);
-            const detailsData = await get_details(businessData.businesses[randomIndex].id);
+    if (businessData.businesses.length > 0) {
+        const randomIndex = Math.floor(Math.random() * businessData.businesses.length);
+        const detailsData = await get_details(businessData.businesses[randomIndex].id);
 
-            if (detailsData) {
-                let value = detailsData[attribute];
-                return value;
-            } else {
-                console.error('Details not found.');
-                return null;
-            }
-        } else {
-            console.error('No businesses found.');
-            return null;
-        }
-    } catch (error) {
-        console.error(error);
+        let value = detailsData[attribute];
+        return value;
+    }
+    else {
+        console.error('No businesses found.');
         return null;
     }
 }
 
 async function get(attribute) {
-    try {
-        let output = await retrieve_data(attribute);
-        console.log(output);
-    } catch (error) {
-        console.error(error);
-    }
+    let output = await retrieve_data(attribute);
+    console.log(output);
 }
 
 get("name");
