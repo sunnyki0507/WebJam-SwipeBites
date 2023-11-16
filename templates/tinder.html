@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+            integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+          integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tinder.css') }}"/>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <title>SwipeBites</title>
+
+</head>
+<body>
+<div class="ui card" id = "profile" >
+
+    <div class="image" id = "photo">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*" alt = "dog">
+        <i class = "huge angle left icon" id = "leftArrow"></i>
+        <i class = "huge angle right icon" id = "rightArrow"></i>
+    </div>
+
+    <div class="content">
+        <a id = "name"></a>
+        <script>
+            loadData();
+        </script>
+        <div class="meta">
+            <span id ="rating"></span>
+            <script>
+                loadData();
+            </script>
+            <span id ="count"></span>
+            <script>
+                loadData();
+            </script>
+        </div>
+        <div class="description">
+            <p id = "categories"></p>
+            <script>
+                loadData();
+            </script>
+        </div>
+    </div>
+    <div class="extra content">
+        <a>
+            <i class="user icon"></i>
+            22 Friends
+        </a>
+    </div>
+
+</div>
+
+
+</body>
+</html>

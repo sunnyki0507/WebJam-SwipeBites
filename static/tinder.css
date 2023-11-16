@@ -1,0 +1,27 @@
+body{
+    display: grid;
+    place-content: center;
+}
+#leftArrow{
+    position: absolute;
+    top: 150px;
+    left: 1px;
+    opacity: .5;
+    color: white;
+}
+#rightArrow{
+    position: absolute;
+    top: 150px;
+    right: 1px;
+    opacity: .5;
+    color: white;
+}
+#photo{
+    position: relative;
+}
+#profile{
+    width: 400px;
+    height: 600px;
+    padding: 20px;
+}
+
