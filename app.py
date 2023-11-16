@@ -8,6 +8,11 @@ CORS(app)
 # Access this endpoint through: http://localhost:5000/
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+# Access this endpoint through: http://localhost:5000/swipe
+@app.route('/swipe')
+def swipe():
     return render_template('tinder.html')
 
 # Access this endpoint through: http://localhost:5000/api

@@ -70,7 +70,14 @@
           </div>
       </div>
 
-      <button class="ui button" id="full" onclick="get_helper('name')">Submit</button>
+      <button class="ui button" id="full" onclick="start()">Submit</button>
+      <script>
+          async function start() {
+              const data = await get_input();
+              alert("Location: " + data.location + "\nPrice: " + data.price.join(','))
+              window.location.href = '/swipe';
+          }
+      </script>
   </div>
 
 
