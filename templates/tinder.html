@@ -21,42 +21,31 @@
 
     <div class="image" id = "photo">
         <img src = "" id = "url" alt = "food">
-        <script>
-            currentImage();
-        </script>
         <i class = "huge angle left icon" id = "leftArrow" onclick = "leftButton()"></i>
         <i class = "huge angle right icon" id = "rightArrow" onclick = "rightButton()"></i>
     </div>
 
     <div class="content">
         <a id = "name"></a>
-        <script>
-            loadData();
-            alert(GLOBAL_DATA["name"])
-        </script>
         <div class="meta">
             <span id ="rating"></span>
-            <script>
-                loadData();
-            </script>
             <span id ="count"></span>
-            <script>
-                loadData();
-            </script>
         </div>
         <div class="description">
             <p id = "categories"></p>
-            <script>
-                loadData();
-            </script>
         </div>
     </div>
+
     <div class="extra content">
         <a>
             <i class="user icon"></i>
             22 Friends
         </a>
     </div>
+
+    <script>
+        loadData();
+    </script>
 
 </div>
 

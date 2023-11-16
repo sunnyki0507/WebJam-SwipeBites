@@ -7,7 +7,7 @@ def get_details(business_id):
     payload = ""
     headers = {
         "User-Agent": "insomnia/8.4.1",
-        "Authorization": "Bearer 4J-bQ9eSyxSktKKdSOk2ZO6b9q9XOb-RroAujtxCfY-IXJqMuzVBLZs-eGhQrP-YWiRVPX_mKzQhoRcdkK83xCVfRpVRPS9JiB1cjI7DgJk0KTUb1-EMOT-5dK1TZXYx"
+        "Authorization": "Bearer Inyqz1xFVnNhXr3sZDEx0kutyooWX-fSlCrDyT55wzUYi40-4mIW3IBscUSITVlCug_fMyGQsa_JtIF9eywjIOHqJHoM23i5CGLWnxg_Gy-jLKDIQVbx6HyMduNVZXYx"
     }
 
     response = requests.request("GET", url, data=payload, headers=headers)
@@ -22,7 +22,7 @@ def get_business(location, price):
     payload = ""
     headers = {
         "User-Agent": "insomnia/8.4.1",
-        "Authorization": "Bearer 4J-bQ9eSyxSktKKdSOk2ZO6b9q9XOb-RroAujtxCfY-IXJqMuzVBLZs-eGhQrP-YWiRVPX_mKzQhoRcdkK83xCVfRpVRPS9JiB1cjI7DgJk0KTUb1-EMOT-5dK1TZXYx"
+        "Authorization": "Bearer Inyqz1xFVnNhXr3sZDEx0kutyooWX-fSlCrDyT55wzUYi40-4mIW3IBscUSITVlCug_fMyGQsa_JtIF9eywjIOHqJHoM23i5CGLWnxg_Gy-jLKDIQVbx6HyMduNVZXYx"
     }
 
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
