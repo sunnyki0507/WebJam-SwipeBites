@@ -4,7 +4,7 @@ const options = {
     method: 'GET',
     headers: {
         'User-Agent': 'insomnia/8.4.1',
-        Authorization: 'Bearer 4J-bQ9eSyxSktKKdSOk2ZO6b9q9XOb-RroAujtxCfY-IXJqMuzVBLZs-eGhQrP-YWiRVPX_mKzQhoRcdkK83xCVfRpVRPS9JiB1cjI7DgJk0KTUb1-EMOT-5dK1TZXYx'
+        Authorization: 'Bearer Inyqz1xFVnNhXr3sZDEx0kutyooWX-fSlCrDyT55wzUYi40-4mIW3IBscUSITVlCug_fMyGQsa_JtIF9eywjIOHqJHoM23i5CGLWnxg_Gy-jLKDIQVbx6HyMduNVZXYx'
     }
 };
 
@@ -33,7 +33,7 @@ function radioValue(clickedButton) {
 }
 
 function loadData(){
-    // document.getElementById("name").innerHTML = GLOBAL_DATA["name"];
+    // document.getElementById("name").innerHTML = toString(GLOBAL_DATA["name"]);
     // document.getElementById("rating").innerHTML = GLOBAL_DATA["rating"];
     // document.getElementById("count").innerHTML = GLOBAL_DATA["review_count"];
     // document.getElementById("categories").innerHTML = GLOBAL_DATA["categories"].map(category => category.title).join(', ');
@@ -78,17 +78,17 @@ function rightButton() {
     image.src = url[current];
 }
 
-function get() {
+function get_data() {
     const priceString = GLOBAL_INPUT.price.join(',');
     const url = `/api?location=${encodeURIComponent(GLOBAL_INPUT.location)}&price=${encodeURIComponent(priceString)}`;
 
     return fetch(url, options)
         .then(response => {
-            // alert('Response status: ' + response.status);
+            alert('Response status: ' + response.status);
             return response.json();
         })
         .then(response => {
-            // alert('Data received: ' + JSON.stringify(response));
+            alert('Data received: ' + JSON.stringify(response));
             return response;
         })
         .catch(err => console.error(err));
@@ -96,7 +96,7 @@ function get() {
 
 async function begin_swipe() {
     GLOBAL_INPUT = await get_input();
-    GLOBAL_DATA = await get();
+    GLOBAL_DATA = await get_data();
 
     alert("Location: " + GLOBAL_INPUT.location +
         "\nPrice: " + GLOBAL_INPUT.price.join(',') +
