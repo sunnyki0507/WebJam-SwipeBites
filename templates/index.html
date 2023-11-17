@@ -2,76 +2,79 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome/Inputs</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome/Inputs</title>
 
-  <!-- JQuery dependency -->
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- JQuery dependency -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-  <!-- ADD SEMANTIC UI LIBRARY SOURCE CODE -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
-          integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
-        integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ADD SEMANTIC UI LIBRARY SOURCE CODE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+            integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+          integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"/>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"/>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 
 <body>
-  <div class = "header" >
-      <h1>SwipeBites.</h1>
-  </div><br>
+<div class="header">
+    <i class = "huge home icon" id = "homeIcon" onclick = "go_home()"></i>
+    <div class = "vertical"></div>
+    <b class = "logo">SwipeBites.</b>
+</div>
+<div class = "contains">
+<div class = "container">
+    <h2>Welcome to SwipeBites!</h2>
 
-  <div class = "container">
-      <h2>Welcome to SwipeBites!</h2>
+    <div class = "ui left icon input">
+        <input type="text" id="locationInput" placeholder="Enter City">
+        <i class="building icon"></i>
+    </div><br><br>
 
-      <div class = "ui left icon input">
-          <input type="text" id="locationInput" placeholder="Enter City">
-          <i class="building icon"></i>
-      </div><br><br>
+    <div class="ui form">
+        <div class="inline fields">
+            <label>Prices</label>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="price" id = "$" value = "false" onclick = "radioValue(this)">
+                    <label>$</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="price1" id = "$$" value = "false" onclick = "radioValue(this)">
+                    <label>$$</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="price2" id="$$$" value = "false" onclick = "radioValue(this)">
+                    <label>$$$</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="price3" id="$$$$" value = "false" onclick = "radioValue(this)">
+                    <label>$$$$</label>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      <div class="ui form">
-          <div class="inline fields">
-              <label>Prices</label>
-              <div class="field">
-                  <div class="ui radio checkbox">
-                      <input type="radio" name="price" id = "$" value = "false" onclick = "radioValue(this)">
-                      <label>$</label>
-                  </div>
-              </div>
-              <div class="field">
-                  <div class="ui radio checkbox">
-                      <input type="radio" name="price1" id = "$$" value = "false" onclick = "radioValue(this)">
-                      <label>$$</label>
-                  </div>
-              </div>
-              <div class="field">
-                  <div class="ui radio checkbox">
-                      <input type="radio" name="price2" id="$$$" value = "false" onclick = "radioValue(this)">
-                      <label>$$$</label>
-                  </div>
-              </div>
-              <div class="field">
-                  <div class="ui radio checkbox">
-                      <input type="radio" name="price3" id="$$$$" value = "false" onclick = "radioValue(this)">
-                      <label>$$$$</label>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <button class="ui button" id="full" onclick="begin_swipe()">Submit</button>
-  </div>
+    <button class="ui button" id="full" onclick="begin_swipe()">Submit</button>
+</div>
+</div>
 
 
 </body>

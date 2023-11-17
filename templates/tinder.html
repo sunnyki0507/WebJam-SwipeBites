@@ -1,56 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
-            integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
-          integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+          integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+        integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tinder.css') }}"/>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
 
-    <title>SwipeBites</title>
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tinder.css') }}"/>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+  <title>SwipeBites</title>
 
 </head>
 <body>
+<div class="header">
+  <i class = "huge home icon" id = "homeIcon" onclick = "go_home()"></i>
+  <div class = "vertical"></div>
+  <b class = "logo">SwipeBites.</b>
+</div>
+<div class = "container">
+  <div class = "spacing">
 <div class="ui card" id = "profile" >
-
-    <div class="image" id = "photo">
-        <img src = "" id = "url" alt = "food">
-        <i class = "huge angle left icon" id = "leftArrow" onclick = "leftButton()"></i>
-        <i class = "huge angle right icon" id = "rightArrow" onclick = "rightButton()"></i>
-    </div>
-
-    <div class="content">
-        <a id = "name"></a>
-        <div class="meta">
-            <span id ="rating"></span>
-            <span id ="count"></span>
-        </div>
-        <div class="description">
-            <p id = "categories"></p>
-        </div>
-    </div>
-
-    <div class="extra content">
-        <a>
-            <i class="user icon"></i>
-            22 Friends
-        </a>
-    </div>
-
+  <div class="image" id = "photo">
+    <img src = "" id = "url" alt = "food">
     <script>
-        loadData();
+      currentImage();
     </script>
+    <i class = "huge angle left icon" id = "leftArrow" onclick = "leftButton()"></i>
+    <i class = "huge angle right icon" id = "rightArrow" onclick = "rightButton()"></i>
+  </div><br>
+
+  <div class="content">
+      <span class = "name" id = "name"></span>
+    <div class="meta" id ="meta">
+      <span id ="rating"></span>
+      <i class = "star icon" id = "star"></i>
+      <span id ="count"></span>
+      <!--<i class = "user icon" id = "user"></i>-->
+      <a id = "linker">
+        <i class = "linkify icon" onclick = "window.open(get_url(), '_blank')"></i>
+      </a>
+    </div>
+    <div class="description">
+      <div class="ui steps" id = "box">
+        <div class="step">
+          Categories:
+        </div>
+      </div>
+      <span id = "categories"></span>
+      <script>
+        loadData();
+      </script>
+    </div>
+
+  </div>
+  <div class = "buttons">
+    <span class="ui secondary button" id="mybtn1" onclick = "match_found()">
+      <i class="check icon" id = "checkIcon"></i>
+    </span>
+
+    <span class="ui third button" id="mybtn2" onclick = "new_business()">
+      <i class="close icon" id = "closeButton"></i>
+    </span>
+
+  </div>
 
 </div>
-
-<button id = "green" onclick = "new_business()">Green</button>
-<button id = "red" onclick = "go_home()">Red</button>
+  </div>
+</div>
 
 </body>
 </html>

@@ -110,9 +110,44 @@ function rightButton() {
     image.src = URLS[CURRENT];
 }
 
+function tada(){
+    const element = document.getElementById("profile");
+    element.classList.add('animate__animated', 'animate__tada');
+
+    element.addEventListener('animationend', function () {
+        element.classList.remove('animate__animated', 'animate__tada');
+    }, { once: true });
+
+}
+
+function bounce(){
+    const element = document.getElementById("profile");
+    element.classList.add('animate__animated', 'animate__bounce');
+
+    element.addEventListener('animationend', function () {
+        element.classList.remove('animate__animated', 'animate__bounce');
+    }, { once: true });
+}
+
 async function new_business() {
+    bounce();
     localStorage.setItem('GLOBAL_DATA', JSON.stringify(await get_data()));
     loadData();
+}
+
+function get_url() {
+    return JSON.parse(localStorage.getItem('GLOBAL_DATA')).url;
+}
+
+function match_found() {
+    tada();
+
+    alert("Congratulations! A match has been found for you. You will now be redirected to " +
+        JSON.parse(localStorage.getItem('GLOBAL_DATA')).name + "'s yelp page.");
+
+    setTimeout(function() {
+        window.open(get_url())
+    }, 2000);
 }
 
 function go_home() {

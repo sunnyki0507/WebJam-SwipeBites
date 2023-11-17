@@ -1,10 +1,40 @@
-body{
-    padding: 10em;
+
+.contains{
     display: grid;
+    height: 95%;
     place-content: center;
     background-color: #84344B;
 }
-
+.header{
+    position: relative;
+    width: 100%;
+    height: 75px;
+    background-color: white;
+    box-shadow: 10px 5px 0 10px #9F718F;
+}
+.vertical{
+    position: absolute;
+    left: 110px;
+    border-left: 5px solid #84344B;
+    height: 60px;
+    top: 7px;
+}
+.logo{
+    font-family: 'Baloo 2', sans-serif;
+    position: absolute;
+    color: #84344B;
+    font-size: 50px;
+    left: 140px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#homeIcon{
+    color: #84344B;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
 p {
     color: black;
     font-size: 30px;
@@ -32,8 +62,17 @@ h2{
 #full {
     width: 100%;
     background-color: #84344B;
-    color: #FFFFFF;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
 }
+
+#full:hover {opacity: 1}
 
 #locationInput{
     font-size: 15px;

@@ -1,11 +1,44 @@
-body{
+
+.container{
     display: grid;
+    height: 95%;
     place-content: center;
+    background-color: #84344B;
+}
+.header{
+    position: relative;
+    width: 100%;
+    height: 75px;
+    background-color: white;
+    box-shadow: 10px 5px 0 10px #9F718F;
+}
+.vertical{
+    position: absolute;
+    left: 110px;
+    border-left: 5px solid #84344B;
+    height: 60px;
+    top: 7px;
+}
+.logo{
+    font-family: 'Baloo 2', sans-serif;
+    position: absolute;
+    color: #84344B;
+    font-size: 50px;
+    left: 140px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#homeIcon{
+    color: #84344B;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
 }
 #leftArrow{
     position: absolute;
     top: 150px;
-    left: 1px;
+    left: 9px;
     opacity: .5;
     color: white;
 }
@@ -18,17 +51,84 @@ body{
 }
 #photo{
     position: relative;
-
-    width: 350px;
+    width: 345px;
     height: 350px;
 }
 #url{
     object-fit: cover;
-    width: 350px;
+    width: 360px;
     height: 350px;
 }
 #profile{
     width: 400px;
-    height: 600px;
+    height: 570px;
     padding: 20px;
+    box-shadow: 10px 10px #9F718F;
 }
+.ui.card>.content, .ui.cards>.card>.content {
+    padding: 0;
+    border-top: 0;
+}
+#spacing{
+    position: relative;
+    width: 400px;
+    height: 600px;
+}
+#name{
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 35px;
+    position: absolute;
+    left:18px;
+    color: #84344B;
+}
+.link span{
+    position: absolute;
+    left: 45px;
+}
+.star{
+    color: #f2b80a;
+}
+.meta{
+    margin-top: 2em;
+}
+#description{
+    font-size: 35px;
+}
+.box{
+    width: 5px;
+    height: 5px;
+}
+.ui.steps:not(.unstackable) .step:first-child {
+    padding: 0.25em .75em;
+    background-color: #9F718F;
+    color: white;
+}
+#mybtn1 {
+    background-color: green;
+    width : 175px;
+    border: none;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+#mybtn1:hover {opacity: 1}
+#mybtn2{
+    background-color: red;
+    color : white;
+    width : 175px;
+    border: none;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+#mybtn2:hover {opacity: 1}
+.buttons {
+    text-align: center;
+}
+
