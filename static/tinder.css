@@ -76,7 +76,7 @@
 }
 #name{
     font-family: 'Baloo 2', sans-serif;
-    font-size: 35px;
+    font-size: 25px;
     position: absolute;
     left:18px;
     color: #84344B;
@@ -99,7 +99,7 @@
     height: 5px;
 }
 .ui.steps:not(.unstackable) .step:first-child {
-    padding: 0.25em .75em;
+    padding: 0.2em .2em;
     background-color: #9F718F;
     color: white;
 }
