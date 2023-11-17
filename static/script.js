@@ -1,3 +1,5 @@
+// import config from './config.js';
+
 const options = {
     method: 'GET',
     headers: {

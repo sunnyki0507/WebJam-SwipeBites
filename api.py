@@ -1,5 +1,6 @@
 import requests
 import random
+import config
 
 def get_details(business_id):
     url = f"https://api.yelp.com/v3/businesses/{business_id}"
@@ -7,7 +8,7 @@ def get_details(business_id):
     payload = ""
     headers = {
         "User-Agent": "insomnia/8.4.1",
-        "Authorization": "Bearer Inyqz1xFVnNhXr3sZDEx0kutyooWX-fSlCrDyT55wzUYi40-4mIW3IBscUSITVlCug_fMyGQsa_JtIF9eywjIOHqJHoM23i5CGLWnxg_Gy-jLKDIQVbx6HyMduNVZXYx"
+        "Authorization": f"Bearer {config.api_key}"
     }
 
     response = requests.request("GET", url, data=payload, headers=headers)
@@ -24,7 +25,7 @@ def get_business(location, price):
     payload = ""
     headers = {
         "User-Agent": "insomnia/8.4.1",
-        "Authorization": "Bearer Inyqz1xFVnNhXr3sZDEx0kutyooWX-fSlCrDyT55wzUYi40-4mIW3IBscUSITVlCug_fMyGQsa_JtIF9eywjIOHqJHoM23i5CGLWnxg_Gy-jLKDIQVbx6HyMduNVZXYx"
+        "Authorization": f"Bearer {config.api_key}"
     }
 
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
