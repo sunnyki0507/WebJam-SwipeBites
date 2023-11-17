@@ -7,7 +7,6 @@ const options = {
 };
 
 function get_input() {
-
     let price = [];
     let count = "$";
     for (let x = 0; x < 4; ++x) {
@@ -22,39 +21,41 @@ function get_input() {
         price: price
     };
 
-    // alert("Location: " + result.location +
-    //     "\nPrice: " + result.price.join(','))
-
     localStorage.setItem('GLOBAL_INPUT', JSON.stringify(result));
 }
 
-function get_data() {
+async function get_data() {
     let storedInput = JSON.parse(localStorage.getItem('GLOBAL_INPUT'));
     const priceString = storedInput.price.join(',');
     const url = `/api?location=${encodeURIComponent(storedInput.location)}&price=${encodeURIComponent(priceString)}`;
 
-    fetch(url, options)
-        .then(response => {
-            alert('Response status: ' + response.status);
-            return response.json();
-        })
-        .then(response => {
-            alert('Data received: ' + JSON.stringify(response));
-            localStorage.setItem('GLOBAL_DATA', JSON.stringify(response));
-        })
-        .catch(err => console.error(err));
+    const response = await fetch(url, options);
+    const parsedResponse = await response.json();
+    return parsedResponse;
+
+        // .then(response => {
+        //     alert('Response status: ' + response.status);
+        //     return response.json();
+        // })
+        // .then(response => {
+        //     alert('Data received: ' + JSON.stringify(response));
+        //     localStorage.setItem('GLOBAL_DATA', JSON.stringify(response));
+        // })
+        // .catch(err => console.error(err));
 }
 
 async function begin_swipe() {
     await get_input();
-    await get_data();
+    const response = await get_data();
+
+    localStorage.setItem('GLOBAL_DATA', JSON.stringify(response));
 
     let storedInput = JSON.parse(localStorage.getItem('GLOBAL_INPUT'));
     let storedData = JSON.parse(localStorage.getItem('GLOBAL_DATA'));
 
-    alert("Location: " + storedInput.location +
-        "\nPrice: " + storedInput.price.join(',') +
-        "\nOutput: " + storedData["name"])
+    // alert("Location: " + storedInput.location +
+    //     "\nPrice: " + storedInput.price.join(',') +
+    //     "\nOutput: " + storedData["name"])
 
     window.location.href = '/swipe';
 }
@@ -67,16 +68,9 @@ let CURRENT = 0;
 function loadData() {
     let storedData = JSON.parse(localStorage.getItem('GLOBAL_DATA'));
 
-    URLS = [storedData.image_url].concat(storedData.photos);
+    URLS = storedData.photos;
     IMG_COUNT = URLS.length;
     CURRENT = 0;
-
-    let test_url = "";
-    for (let i = 0; i < IMG_COUNT; ++i)
-    {
-        test_url += URLS[i] + "\n";
-    }
-    alert(test_url);
 
     currentImage();
     document.getElementById("name").innerHTML = storedData.name;
@@ -117,11 +111,7 @@ function rightButton() {
 }
 
 async function new_business() {
-    await get_data();
-
-    let storedData = JSON.parse(localStorage.getItem('GLOBAL_DATA'));
-    alert("\nNew Output: " + storedData["name"]);
-
+    localStorage.setItem('GLOBAL_DATA', JSON.stringify(await get_data()));
     loadData();
 }
 

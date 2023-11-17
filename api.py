@@ -15,6 +15,8 @@ def get_details(business_id):
     return response.json()
 
 def get_business(location, price):
+
+    print("hserserset", location)
     url = "https://api.yelp.com/v3/businesses/search"
 
     querystring = {"location":location,"price":price}
