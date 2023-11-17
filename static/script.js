@@ -22,8 +22,8 @@ function get_input() {
         price: price
     };
 
-    alert("Location: " + result.location +
-        "\nPrice: " + result.price.join(','))
+    // alert("Location: " + result.location +
+    //     "\nPrice: " + result.price.join(','))
 
     localStorage.setItem('GLOBAL_INPUT', JSON.stringify(result));
 }
@@ -55,7 +55,6 @@ async function begin_swipe() {
     alert("Location: " + storedInput.location +
         "\nPrice: " + storedInput.price.join(',') +
         "\nOutput: " + storedData["name"])
-    // OUTPUT DISPLAYS OLD DATA
 
     window.location.href = '/swipe';
 }
@@ -63,7 +62,7 @@ async function begin_swipe() {
 
 let URLS = [];
 let IMG_COUNT = 0;
-let CURRENT = 0; // Declare the variable outside the functions
+let CURRENT = 0;
 
 function loadData() {
     let storedData = JSON.parse(localStorage.getItem('GLOBAL_DATA'));
@@ -94,21 +93,16 @@ function radioValue(clickedButton) {
 
 function currentImage() {
     let image = document.getElementById("url");
-    alert(URLS[CURRENT]);
     image.src = URLS[CURRENT];
 }
 
-// FIRST ARROW CLICK DOESNT WORK SO MAKES LAST IMG UNDEFINED
-
 function leftButton() {
     let image = document.getElementById("url");
-    // Use the global variable
     if (CURRENT === 0) {
         CURRENT = IMG_COUNT-1;
     } else {
         --CURRENT;
     }
-    alert(URLS[CURRENT]);
     image.src = URLS[CURRENT];
 }
 
@@ -119,6 +113,18 @@ function rightButton() {
     } else {
         ++CURRENT;
     }
-    alert(URLS[CURRENT]);
     image.src = URLS[CURRENT];
+}
+
+async function new_business() {
+    await get_data();
+
+    let storedData = JSON.parse(localStorage.getItem('GLOBAL_DATA'));
+    alert("\nNew Output: " + storedData["name"]);
+
+    loadData();
+}
+
+function go_home() {
+    window.location.replace('/');
 }
