@@ -1,6 +1,17 @@
-import requests
 import random
-import config
+import os
+import requests
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Use os.getenv to access the API key
+api_key = os.getenv("API_KEY")
+
+# Check if API key is available
+if not api_key:
+    raise ValueError("API_KEY is not set in the environment variables.")
 
 def get_details(business_id):
     url = f"https://api.yelp.com/v3/businesses/{business_id}"
@@ -8,7 +19,7 @@ def get_details(business_id):
     payload = ""
     headers = {
         "User-Agent": "insomnia/8.4.1",
-        "Authorization": f"Bearer {config.api_key}"
+        "Authorization": f"Bearer {api_key}"
     }
 
     response = requests.request("GET", url, data=payload, headers=headers)
@@ -25,7 +36,7 @@ def get_business(location, price):
     payload = ""
     headers = {
         "User-Agent": "insomnia/8.4.1",
-        "Authorization": f"Bearer {config.api_key}"
+        "Authorization": f"Bearer {api_key}"
     }
 
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)

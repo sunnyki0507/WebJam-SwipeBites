@@ -1,12 +1,16 @@
-// import config from './config.js';
+// const api_key = process.env.API_KEY;
+// console.log("API Key:", api_key);
+// Run command: node static/script.js ACTUAL_API_KEY
 
 const options = {
     method: 'GET',
     headers: {
         'User-Agent': 'insomnia/8.4.1',
-        Authorization: 'Bearer Inyqz1xFVnNhXr3sZDEx0kutyooWX-fSlCrDyT55wzUYi40-4mIW3IBscUSITVlCug_fMyGQsa_JtIF9eywjIOHqJHoM23i5CGLWnxg_Gy-jLKDIQVbx6HyMduNVZXYx'
+        Authorization: `Bearer ${process.env.API_KEY}`
+        // Authorization: 'Bearer ACTUAL_API_KEY'
     }
 };
+// console.log(options.headers.Authorization);
 
 function get_input() {
     let price = [];
