@@ -11,7 +11,6 @@ const options = {
     }
 };
 // console.log(options.headers.Authorization);
-
 function get_input() {
     let price = [];
     let count = "$";
